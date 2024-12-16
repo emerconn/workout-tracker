@@ -8,7 +8,7 @@ RUN CGO_ENABLED=0 GOOS=linux go build -o main .
 RUN upx --best --lzma main
 
 # Debug image
-FROM alpine:3.20 AS debug
+FROM alpine:3.21 AS debug
 WORKDIR /app
 COPY --from=build /app/main .
 RUN addgroup -g 65532 nonroot && adduser -DHs /sbin/nologin -u 65532 -G nonroot nonroot
