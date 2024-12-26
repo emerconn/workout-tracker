@@ -1,6 +1,5 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:recommended", ":disableDependencyDashboard"],
-  "prHourlyLimit": 10,
-  "assignees": ["emerconnelly"],
+  "extends": ["config:recommended"],
+  "prHourlyLimit": 0,
 }
