@@ -1,6 +1,6 @@
 module github.com/emerconnelly/workout-tracker
 
-go 1.23.1
+go 1.23.4
 
 require (
 	github.com/joho/godotenv v1.5.1
