@@ -18,7 +18,7 @@ RUN upx --best --lzma main
 
 # Debug image
 FROM alpine:3.21 AS debug
-LABEL org.opencontainers.image.description="workout-tracker debug"
+LABEL org.opencontainers.image.description DESCRIPTION
 WORKDIR /app
 COPY --from=debug-build /app/main .
 RUN addgroup -g 65532 nonroot && adduser -DHs /sbin/nologin -u 65532 -G nonroot nonroot
@@ -30,7 +30,7 @@ CMD ["./main"]
 
 # Production image
 FROM gcr.io/distroless/static-debian12 AS slim
-LABEL org.opencontainers.image.description="workout-tracker slim"
+LABEL org.opencontainers.image.description DESCRIPTION
 WORKDIR /app
 COPY --from=slim-build /app/main .
 USER nonroot:nonroot
