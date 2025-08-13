@@ -1,5 +1,5 @@
 # Debug builder
-FROM golang:1.23-alpine3.21 AS debug-build
+FROM golang:1.25-alpine3.21 AS debug-build
 WORKDIR /app
 COPY backend/ .
 RUN go mod download
@@ -8,7 +8,7 @@ RUN CGO_ENABLED=0 GOOS=linux go build -o main .
 RUN upx --best --lzma main
 
 # Prod builder
-FROM golang:1.23-alpine3.21 AS slim-build
+FROM golang:1.25-alpine3.21 AS slim-build
 WORKDIR /app
 COPY backend/ .
 RUN go mod download
