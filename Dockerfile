@@ -17,7 +17,7 @@ RUN CGO_ENABLED=0 GOOS=linux go build -ldflags="-s -w" -o main .
 RUN upx --best --lzma main
 
 # Debug image
-FROM alpine:3.21 AS debug
+FROM alpine:3.24 AS debug
 LABEL org.opencontainers.image.description DESCRIPTION
 WORKDIR /app
 COPY --from=debug-build /app/main .
